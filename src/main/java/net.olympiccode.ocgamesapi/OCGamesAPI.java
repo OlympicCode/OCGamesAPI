@@ -13,7 +13,7 @@ public class OCGamesAPI {
     Logger LOG;
 
     public OCGamesAPI(JavaPlugin instance, String name) {
-        this.instance = this;
+        OCGamesAPI.instance = this;
         this.name = name != null ? name : "OCG-U" + Math.random();
         this.plugin = instance;
         LOG = Logger.getLogger(name);

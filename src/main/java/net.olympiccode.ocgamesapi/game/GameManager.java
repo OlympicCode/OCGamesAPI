@@ -11,7 +11,7 @@ public class GameManager {
 
     public List<Game> activeGames = new ArrayList<>();
     public GameManager() {
-        this.instance = this;
+        instance = this;
     }
 
     public static GameManager getInstance() {
