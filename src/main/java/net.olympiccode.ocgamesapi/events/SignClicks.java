@@ -1,6 +1,8 @@
 package net.olympiccode.ocgamesapi.events;
 
+import net.olympiccode.ocgamesapi.arenas.Arena;
 import net.olympiccode.ocgamesapi.arenas.ArenaManager;
+import net.olympiccode.ocgamesapi.game.GameState;
 import net.olympiccode.ocgamesapi.signs.ArenaSign;
 import net.olympiccode.ocgamesapi.utils.ALocation;
 import org.bukkit.Material;
@@ -18,7 +20,10 @@ public class SignClicks implements Listener {
         if (isValid(e)) {
             ArenaSign sign;
             if ((sign = ArenaManager.instance.getSignAt((ALocation) e.getClickedBlock().getLocation())) != null) {
+                Arena a = sign.getArena();
+                if (a.getGame().getState().equals(GameState.READY) || a.getGame().getState().equals(GameState.PRE_GAME)) {
 
+                }
             }
         }
     }

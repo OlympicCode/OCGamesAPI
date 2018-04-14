@@ -1,30 +1,25 @@
 package net.olympiccode.ocgamesapi.signs;
 
+import lombok.Getter;
+import net.olympiccode.ocgamesapi.arenas.Arena;
 import net.olympiccode.ocgamesapi.utils.ALocation;
 
+@Getter
 public class ArenaSign {
-    String arena;
+    Arena arena;
     ALocation location;
 
     public String toString() {
         return arena + ";" + location.toString();
     }
 
-    public static ArenaSign fromString(String string) {
+    public static ArenaSign fromString(Arena arena, String string) {
         String[] s = string.split(";");
-        return new ArenaSign(s[0], ALocation.fromString(s[1]));
+        return new ArenaSign(arena, ALocation.fromString(s[1]));
     }
 
-    public ArenaSign(String arena, ALocation location) {
+    public ArenaSign(Arena arena, ALocation location) {
         this.arena = arena;
         this.location = location;
-    }
-
-    public String getArena() {
-        return arena;
-    }
-
-    public ALocation getLocation() {
-        return location;
     }
 }

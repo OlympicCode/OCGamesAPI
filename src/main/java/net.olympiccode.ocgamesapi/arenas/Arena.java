@@ -2,44 +2,54 @@ package net.olympiccode.ocgamesapi.arenas;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import lombok.Getter;
 import net.olympiccode.ocgamesapi.game.Game;
 import net.olympiccode.ocgamesapi.signs.ArenaSign;
 import net.olympiccode.ocgamesapi.teams.Team;
 import net.olympiccode.ocgamesapi.utils.ALocation;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Getter
 public class Arena {
     private Game game;
 
+
     private List<ArenaSign> signs;
 
+    private String name;
+    private String prettyName;
     private ALocation lobby;
-    private HashMap<Team, ALocation> spawns;
+    private HashMap<Team, List<ALocation>> spawns;
 
-    public Game getGame() {
-        return game;
-    }
-
-    public List<ArenaSign> getSigns() {
-        return signs;
-    }
-
-    public void loadFromJson(JsonObject object) {
+    public Arena loadFromJson(String name, JsonObject object) {
         // Basic
         this.lobby = ALocation.fromString(object.get("lobby").getAsString());
+        this.name = name;
 
         // Spawns
         JsonObject jspawns = object.getAsJsonObject("spawns");
-        jspawns.entrySet().forEach(stringJsonElementEntry ->
-                spawns.put(Team.fromString(stringJsonElementEntry.getKey()), ALocation.fromString(stringJsonElementEntry.getValue().getAsString())));
+        jspawns.entrySet().forEach(stringJsonElementEntry -> {
+                    Team t = Team.fromString(stringJsonElementEntry.getKey());
+                    ALocation loc = ALocation.fromString(stringJsonElementEntry.getValue().getAsString());
+                    if (spawns.containsKey(t)) {
+                        spawns.get(t).add(loc);
+                    } else {
+                        List<ALocation> l = new ArrayList<>();
+                        l.add(loc);
+                        spawns.put(t, l);
+                    }
+                }
+        );
 
         // Signs
-        object.getAsJsonArray("sgins").forEach(jsonElement -> signs.add(ArenaSign.fromString(jsonElement.getAsString())));
+        object.getAsJsonArray("sgins").forEach(jsonElement -> signs.add(ArenaSign.fromString(this, jsonElement.getAsString())));
+        return this;
     }
 
-    public void saveToJson() {
+    public JsonObject saveToJson() {
         // Basic
         JsonObject object = new JsonObject();
         object.addProperty("lobby", lobby.toString());
@@ -52,5 +62,7 @@ public class Arena {
         // Signs
         JsonArray jsigns = new JsonArray();
         signs.forEach(arenaSign -> jsigns.add(arenaSign.toString()));
+
+        return object;
     }
 }

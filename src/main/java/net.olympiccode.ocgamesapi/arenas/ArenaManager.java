@@ -1,10 +1,14 @@
 package net.olympiccode.ocgamesapi.arenas;
 
+import lombok.Getter;
 import net.olympiccode.ocgamesapi.signs.ArenaSign;
 import net.olympiccode.ocgamesapi.utils.ALocation;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
+@Getter
 public class ArenaManager {
     public List<Arena> arenas;
 
@@ -18,7 +22,11 @@ public class ArenaManager {
         return null;
     }
 
-    public ArenaManager getInstance() {
+    public Arena getByName(String s) {
+        return Optional.ofNullable(arenas.stream().filter(arena -> arena.getName().equalsIgnoreCase(s)).collect(Collectors.toList()).get(0)).orElse(null);
+    }
+
+    public static ArenaManager getInstance() {
         if (instance == null) {
             instance = new ArenaManager();
         }

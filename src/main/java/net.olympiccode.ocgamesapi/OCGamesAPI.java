@@ -1,11 +1,12 @@
 package net.olympiccode.ocgamesapi;
 
+import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
-
+@Getter
 public class OCGamesAPI {
-    OCGamesAPI instance;
+    static OCGamesAPI instance;
     JavaPlugin plugin;
     String name;
 
@@ -19,7 +20,7 @@ public class OCGamesAPI {
         LOG.info("Loading OCGamesAPI for " + name);
     }
 
-    public OCGamesAPI get() {
+    public static OCGamesAPI get() {
         return instance;
     }
 }
