@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OCGamesAPI">
+    <output-path>$PROJECT_DIR$/out/artifacts/OCGamesAPI</output-path>
+    <root id="archive" name="OCGamesAPI.jar">
+      <element id="module-output" name="OCGamesAPI_main" />
+    </root>
+  </artifact>
+</component>

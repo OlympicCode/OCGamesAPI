@@ -1,12 +1,9 @@
-package net.olympiccode.ocgamesapi.arenas;
+package net.olympiccode.ocgamesapi.data;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import lombok.Getter;
 import net.olympiccode.ocgamesapi.game.Game;
-import net.olympiccode.ocgamesapi.signs.ArenaSign;
-import net.olympiccode.ocgamesapi.teams.Team;
-import net.olympiccode.ocgamesapi.utils.ALocation;
 
 import java.util.ArrayList;
 import java.util.HashMap;

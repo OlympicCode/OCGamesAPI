@@ -1,8 +1,9 @@
-package net.olympiccode.ocgamesapi.arenas;
+package net.olympiccode.ocgamesapi.managers;
 
 import lombok.Getter;
-import net.olympiccode.ocgamesapi.signs.ArenaSign;
-import net.olympiccode.ocgamesapi.utils.ALocation;
+import net.olympiccode.ocgamesapi.data.Arena;
+import net.olympiccode.ocgamesapi.data.ArenaSign;
+import net.olympiccode.ocgamesapi.data.ALocation;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package net.olympiccode.ocgamesapi.utils;
+package net.olympiccode.ocgamesapi.data;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

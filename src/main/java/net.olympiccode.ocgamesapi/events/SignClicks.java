@@ -1,10 +1,10 @@
 package net.olympiccode.ocgamesapi.events;
 
-import net.olympiccode.ocgamesapi.arenas.Arena;
-import net.olympiccode.ocgamesapi.arenas.ArenaManager;
+import net.olympiccode.ocgamesapi.data.Arena;
+import net.olympiccode.ocgamesapi.managers.ArenaManager;
 import net.olympiccode.ocgamesapi.game.GameState;
-import net.olympiccode.ocgamesapi.signs.ArenaSign;
-import net.olympiccode.ocgamesapi.utils.ALocation;
+import net.olympiccode.ocgamesapi.data.ArenaSign;
+import net.olympiccode.ocgamesapi.data.ALocation;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

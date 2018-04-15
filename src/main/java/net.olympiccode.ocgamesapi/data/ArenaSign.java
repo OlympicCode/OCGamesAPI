@@ -1,8 +1,6 @@
-package net.olympiccode.ocgamesapi.signs;
+package net.olympiccode.ocgamesapi.data;
 
 import lombok.Getter;
-import net.olympiccode.ocgamesapi.arenas.Arena;
-import net.olympiccode.ocgamesapi.utils.ALocation;
 
 @Getter
 public class ArenaSign {

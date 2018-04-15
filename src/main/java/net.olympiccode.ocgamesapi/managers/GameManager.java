@@ -1,5 +1,6 @@
-package net.olympiccode.ocgamesapi.game;
+package net.olympiccode.ocgamesapi.managers;
 
+import net.olympiccode.ocgamesapi.game.Game;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;

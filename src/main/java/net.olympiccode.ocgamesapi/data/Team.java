@@ -1,4 +1,4 @@
-package net.olympiccode.ocgamesapi.teams;
+package net.olympiccode.ocgamesapi.data;
 
 import lombok.Data;
 import org.bukkit.ChatColor;

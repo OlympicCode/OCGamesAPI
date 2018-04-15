@@ -2,8 +2,8 @@ package net.olympiccode.ocgamesapi.config;
 
 import com.google.gson.JsonParser;
 import net.olympiccode.ocgamesapi.OCGamesAPI;
-import net.olympiccode.ocgamesapi.arenas.Arena;
-import net.olympiccode.ocgamesapi.arenas.ArenaManager;
+import net.olympiccode.ocgamesapi.data.Arena;
+import net.olympiccode.ocgamesapi.managers.ArenaManager;
 
 import java.io.File;
 import java.io.IOException;
